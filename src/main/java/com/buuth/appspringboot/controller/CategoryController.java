@@ -5,6 +5,7 @@ package com.buuth.appspringboot.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,21 +18,19 @@ import com.buuth.appspringboot.service.query.category.dto.ListCategoryDto;
 import com.buuth.appspringboot.service.query.dto.BaseListContentDto;
 import com.buuth.appspringboot.service.query.dto.QueryItem;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * @author Tran Hoang Buu
  *
  */
 @Controller
-@RequiredArgsConstructor
-@RequestMapping("/api")
 @RestController
+@RequestMapping("/api/category")
 public class CategoryController {
 
-    private final CategoryQueryService categoryQueryService;
+    @Autowired
+    private CategoryQueryService categoryQueryService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<BaseListContentDto> getRoleByCode() {
         CategoryQueryList query = CategoryQueryList.builder()
             .build();

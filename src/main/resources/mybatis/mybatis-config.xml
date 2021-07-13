@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="code_const.properties">
+    </properties>
+
+    <!-- http://www.mybatis.org/mybatis-3/ja/configuration.html -->
+    <!--全局配置 -->
+    <settings>
+        <!-- キャッシュ利用有無 -->
+        <setting name="localCacheScope" value="STATEMENT" />       <!-- SESSION or STATEMENT -->
+        <setting name="cacheEnabled" value="true" />               <!-- default is false -->
+        <setting name="lazyLoadingEnabled" value="false" />        <!-- default is false -->
+        <setting name="aggressiveLazyLoading" value="true" />      <!-- default is true -->
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <setting name="useColumnLabel" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <setting name="callSettersOnNulls" value="true" />
+
+        <setting name="defaultFetchSize" value="1000" />
+        <setting name="defaultStatementTimeout" value="25000" />
+    </settings>
+
+    <!-- タイプエイリアス -->
+    <typeAliases>
+        <package name="jp.co.hashdash.db.trade.entity" />
+        <package name="jp.co.hashdash.business.common.entity" />
+        <package name="jp.co.hashdash.batch.db.entity" />
+    </typeAliases>
+
+    <!-- 列挙型 -->
+    <typeHandlers>
+        <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalDateTypeHandler" />
+        <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalDateTimeTypeHandler" />
+        <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalTimeTypeHandler" />
+        <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.JsonTypeHandler" />
+    </typeHandlers>
+
+</configuration>

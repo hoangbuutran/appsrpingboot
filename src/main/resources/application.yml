@@ -1,0 +1,25 @@
+security:
+  basic:
+    enabled: false
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/appspringboot
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: false
+    
+    
+mybatis:
+     # 
+  config-location: classpath:mybatis/mybatis-config.xml #This is the main profile path
+  mapper-location: classpath:mybatis/mapper/*.xml   #Configuration of database mapping file
+  type-aliases-package: com.buuth.appspringboot.entity
+     #mapper.xmlLocation
+  mapper-locations: classpath:mappers/*.xml

@@ -22,4 +22,4 @@ mybatis:
   mapper-location: classpath:mybatis/mapper/*.xml   #Configuration of database mapping file
   type-aliases-package: com.buuth.appspringboot.entity
      #mapper.xmlLocation
-  mapper-locations: classpath:mappers/*.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

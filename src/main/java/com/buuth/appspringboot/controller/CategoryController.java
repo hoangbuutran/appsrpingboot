@@ -3,20 +3,20 @@
  */
 package com.buuth.appspringboot.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.buuth.appspringboot.service.command.category.CategoryCommandService;
+import com.buuth.appspringboot.service.command.category.dto.CreateCategoryCommand;
 import com.buuth.appspringboot.service.query.category.CategoryQueryService;
 import com.buuth.appspringboot.service.query.category.dto.CategoryQueryList;
 import com.buuth.appspringboot.service.query.category.dto.ListCategoryDto;
-import com.buuth.appspringboot.service.query.dto.BaseListContentDto;
-import com.buuth.appspringboot.service.query.dto.QueryItem;
 
 /**
  * @author Tran Hoang Buu
@@ -29,16 +29,19 @@ public class CategoryController {
 
     @Autowired
     private CategoryQueryService categoryQueryService;
+    @Autowired
+    private CategoryCommandService categoryCommandService;
 
     @GetMapping
-    public ResponseEntity<BaseListContentDto> getRoleByCode() {
+    public ResponseEntity<ListCategoryDto> getRoleByCode() {
         CategoryQueryList query = CategoryQueryList.builder()
             .build();
         ListCategoryDto content = categoryQueryService.handle(query);
-        BaseListContentDto result = BaseListContentDto.builder()
-            .content((List<QueryItem>) content)
-            .total(1000l)
-            .build();
-        return ResponseEntity.ok().body(result);
+        return ResponseEntity.ok().body(content);
+    }
+
+    @PostMapping
+    public void create(@RequestBody CreateCategoryCommand cmd) {
+        categoryCommandService.handle(cmd);
     }
 }

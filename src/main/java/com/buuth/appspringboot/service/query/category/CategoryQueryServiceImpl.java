@@ -18,6 +18,9 @@ public class CategoryQueryServiceImpl extends AppSpringBootQuery implements Cate
 
     @Override
     public ListCategoryDto handle(CategoryQueryList query) {
-        return null;
+
+        return ListCategoryDto.builder()
+            .content(categoryMapper.getCategorys())
+        .build();
     }
 }

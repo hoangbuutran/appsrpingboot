@@ -33,7 +33,7 @@ public abstract class AbstractAuditingEntity  implements Serializable {
     @Column(name = "created_by", columnDefinition = "varchar(255)",
             nullable = false, length = 50, updatable = false)
     @JsonIgnore
-    private String createdBy;
+    private String createdBy = "annoy";
 
     @CreatedDate
     @Column(name = "created_date", updatable = false, columnDefinition = "DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6)")
@@ -41,9 +41,9 @@ public abstract class AbstractAuditingEntity  implements Serializable {
     private Instant createdDate = Instant.now();
 
     @LastModifiedBy
-    @Column(name = "last_modified_by", length = 50)
+    @Column(name = "last_modified_by", length = 50, updatable = true)
     @JsonIgnore
-    private String lastModifiedBy;
+    private String lastModifiedBy = "annoy";
 
     @LastModifiedDate
     @Column(name = "last_modified_date")

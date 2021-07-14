@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="code_const.properties">
-    </properties>
+<!--     <properties resource="code_const.properties">
+    </properties> -->
 
     <!-- http://www.mybatis.org/mybatis-3/ja/configuration.html -->
     <!--全局配置 -->
@@ -26,17 +26,15 @@
 
     <!-- タイプエイリアス -->
     <typeAliases>
-        <package name="jp.co.hashdash.db.trade.entity" />
-        <package name="jp.co.hashdash.business.common.entity" />
-        <package name="jp.co.hashdash.batch.db.entity" />
+        <package name="com.buuth.appspringboot.entity" />
     </typeAliases>
 
     <!-- 列挙型 -->
-    <typeHandlers>
+<!--     <typeHandlers>
         <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalDateTypeHandler" />
         <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalDateTimeTypeHandler" />
         <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.LocalTimeTypeHandler" />
         <typeHandler handler="jp.co.gt.fw.common.mybatis.handler.JsonTypeHandler" />
-    </typeHandlers>
+    </typeHandlers> -->
 
 </configuration>

@@ -4,9 +4,9 @@ security:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    password: 123456
     url: jdbc:mysql://localhost:3306/appspringboot
     username: root
+    password: 123456
   jpa:
     hibernate:
       ddl-auto: update
